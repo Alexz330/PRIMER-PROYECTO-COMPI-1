@@ -26,23 +26,26 @@ action code {:
 :}
 
 // terminal
-terminal String comma, identificador, entero ,cadena, especialC;
+terminal String constante, Igual, identificador;
 
-
+    
 // no terminal
-non terminal String INICIO, FINAL ;
+non terminal String INICIO;
+non terminal DECLARACION, INSTRUCCION, INSTRUCCIONES;
 
 
 start with INICIO;
 
-INICIO ::= cadena:texto FINAL{:
-        
-          System.out.println(texto);  
-    
-:};
+INICIO::= INSTRUCCIONES:a   
 
-FINAL ::= comma cadena:texto {:
-        
-          System.out.println(texto);  
+
+INSTRUCCIONES::= INSTRUCCIONES:a INSTRUCCION:b
+                 |INSTRUCCION:a
+                  
+
+INSTRUCCION::= DECLARACION
+
+
+DECLARACION::= constante:a  identificador:b Igual:c{: System.ou.println(a):}
     
-:};
+          

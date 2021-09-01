@@ -21,35 +21,45 @@ import java_cup.runtime.*;
 blancos = [ \r\t\n]+
 //letras
 
+
+
+// analizador de javasito
 letra = [a-zA-Z]
 entero = [0-9]+
 
+
+
+
+
+
+
 //Identificadores
 identificador = {letra}({letra}|"_"|{entero})*
-cadena = "\""[^\"]+"\""
-especialC = ("\\""n"|"\\""\'"|"\\""\"")
-//Comentarios
-comunilinea = ("//".*\n)|("//".*\r)
-commultilinea = ("<""!"[^\!]*"!"">")
+
 
 
 
 %%
 
-"," {return new Symbol(sym.comma,yyline,yychar,yytext());}
+
 
 //IGNORADOS
-{blancos} {}
-{comunilinea} {}
-{commultilinea} {}
+
 
 
 
 
 {identificador} {return new Symbol(sym.identificador,yyline,yychar,yytext());}
-{entero} {return new Symbol(sym.entero,yyline,yychar,yytext());}
-{cadena} {return new Symbol(sym.cadena,yyline,yychar,yytext());}
-{especialC} {return new Symbol(sym.especialC,yyline,yychar,yytext());}
+
+
+"const" {return new Symbol(sym.constante ,yyline,yychar,yytext()); }
+
+
+
+
+// simbolos de javeritoScript
+
+"=" {return new Symbol(sym.Igual,yyline,yychar,yytext());}
 
 
 .   {

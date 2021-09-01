@@ -8,21 +8,17 @@ package proyecto.pkg1.compi;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int especialC = 6;
-  public static final int comma = 2;
-  public static final int cadena = 5;
-  public static final int entero = 4;
   public static final int error = 1;
-  public static final int identificador = 3;
+  public static final int identificador = 4;
+  public static final int constante = 2;
   public static final int EOF = 0;
+  public static final int Igual = 3;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
-  "comma",
-  "identificador",
-  "entero",
-  "cadena",
-  "especialC"
+  "constante",
+  "Igual",
+  "identificador"
   };
 }
 

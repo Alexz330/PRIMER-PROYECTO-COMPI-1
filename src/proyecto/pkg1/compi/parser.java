@@ -31,8 +31,7 @@ public class parser extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\003\000\002\002\004\000\002\002\004\000\002\003" +
-    "\004" });
+    "\000\002\000\002\002\004\000\002\002\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -40,10 +39,9 @@ public class parser extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\007\000\004\007\004\001\002\000\004\004\007\001" +
+    "\000\004\000\004\004\004\001\002\000\004\002\000\001" +
     "\002\000\004\002\006\001\002\000\004\002\001\001\002" +
-    "\000\004\007\011\001\002\000\004\002\000\001\002\000" +
-    "\004\002\uffff\001\002" });
+    "" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -51,9 +49,8 @@ public class parser extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\007\000\004\002\004\001\001\000\004\003\007\001" +
-    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001" });
+    "\000\004\000\004\002\004\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -151,34 +148,19 @@ class CUP$parser$actions {
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 1: // INICIO ::= cadena FINAL 
-            {
-              String RESULT =null;
-		int textoleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
-		int textoright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
-		String texto = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
-		
-        
-          System.out.println(texto);  
-    
-
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
-            }
-          return CUP$parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 2: // FINAL ::= comma cadena 
+          case 1: // INICIO ::= constante 
             {
               String RESULT =null;
 		int textoleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int textoright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String texto = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-        
-          System.out.println(texto);  
+      
+         System.out.println(texto);  
+         
     
 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("FINAL",1, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
